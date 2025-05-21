@@ -90,7 +90,7 @@ public class TransactionService {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transacción no encontrada"));
 
-        if (!transaction.getSeller().getIdUser().equals(sellerId)) {
+        if (!transaction.getSeller().getId().equals(sellerId)) {
             throw new RuntimeException("Solo el vendedor puede aceptar/rechazar la transacción");
         }
 
@@ -112,7 +112,7 @@ public class TransactionService {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transacción no encontrada"));
 
-        if (!transaction.getSeller().getIdUser().equals(sellerId)) {
+        if (!transaction.getSeller().getId().equals(sellerId)) {
             throw new RuntimeException("Solo el vendedor puede eliminar la transacción");
         }
 
